@@ -1,5 +1,5 @@
 # FLogProject
-This is a simple log library in c++ and cross platform in pure c++ .
+This is a lightweight cross-platform logger library for C++ based on Standard Template Library.
 
 ## Getting Started
 
