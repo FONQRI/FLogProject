@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 // macro API
-#define FuserLog(user, message)                                                \
+#define FLogUser(user, message)                                                \
 	FLog::mUserLog(std::chrono::system_clock::to_time_t(                       \
 			   std::chrono::system_clock::now()),                      \
 		   user, __LINE__, __FILE__, message)
