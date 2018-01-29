@@ -1,5 +1,7 @@
-#include "FLog.h"
 #include <iostream>
+
+#include "FLog.h"
+
 int main()
 {
 	// set print level to top ( print all logs )
