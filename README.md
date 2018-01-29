@@ -40,6 +40,9 @@ int main()
 
 ```
 
+![Screenshot](https://github.com/FONQRI/FLogProject/blob/master/img/Usage.png "Screenshot of usage log")
+
+
 ## Using
 You can set these static variables and use library like above :
 >
