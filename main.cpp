@@ -1,7 +1,6 @@
-#include <iostream>
-
 #include "FLog.h"
-
+#include <iostream>
+#include <thread>
 int main()
 {
 	// set print level to top ( print all logs )
@@ -9,6 +8,10 @@ int main()
 
 	// set log level to top ( log every thing )
 	FLog::logLevel = FLog::Level::all;
+	std::thread([]() {
+	FLogUser("first user", "Test message log");
+
+	}).join();
 
 	// using APIs
 	FLogUser("first user", "Test message log");

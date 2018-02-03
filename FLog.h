@@ -3,7 +3,9 @@
 #include <ctime>
 #include <iostream>
 #include <mutex>
+#include <sstream>
 #include <string>
+#include <thread>
 #include <vector>
 // macro API
 #define FLogUser(user, message)                                                \

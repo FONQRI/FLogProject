@@ -6,6 +6,12 @@ FLog::FLog() {}
 void FLog::mUserLog(std::time_t dateTime, std::string userName, int line,
 			std::string file, std::string text)
 {
+
+	// get thread id and convert it to string
+	std::ostringstream sstream;
+	sstream << std::this_thread::get_id();
+	std::string threadIdStr = sstream.str();
+
 	if (logLevel != FLog::none) {
 		if (FLog::printUser | FLog::printAll) {
 			std::string timeTemp = std::string(std::ctime(&dateTime));
@@ -13,8 +19,9 @@ void FLog::mUserLog(std::time_t dateTime, std::string userName, int line,
 			std::string temp = " [DateTime: " + timeTemp + " ] " +
 					   " [Type: User    ] " + " [Line: " +
 					   std::to_string(line) + " ] " +
-					   " [File: " + file + " ] " + " [MSG: " +
-					   text + " ] " + " [User: " + userName +
+					   " [Thread Id: " + threadIdStr + " ] " +
+					   " [File: " + file + " ] " + " [User: " +
+					   userName + " ] " + " [MSG: " + text +
 					   " ] ";
 			std::mutex locker;
 			locker.lock();
@@ -35,6 +42,12 @@ void FLog::mUserLog(std::time_t dateTime, std::string userName, int line,
 void FLog::mError(const time_t dateTime, int line, std::string file,
 		  std::string text)
 {
+
+	// get thread id and convert it to string
+	std::ostringstream sstream;
+	sstream << std::this_thread::get_id();
+	std::string threadIdStr = sstream.str();
+
 	if (logLevel != FLog::none) {
 		if (FLog::printError | FLog::printAll) {
 
@@ -43,6 +56,7 @@ void FLog::mError(const time_t dateTime, int line, std::string file,
 			std::string temp = " [DateTime: " + timeTemp + " ] " +
 					   " [Type: Error   ] " + " [Line: " +
 					   std::to_string(line) + " ] " +
+					   " [Thread Id: " + threadIdStr + " ] " +
 					   " [File: " + file + " ] " + " [MSG: " +
 					   text + " ] ";
 			std::mutex locker;
@@ -65,6 +79,12 @@ void FLog::mError(const time_t dateTime, int line, std::string file,
 void FLog::mWarning(const time_t dateTime, int line, std::string file,
 			std::string text)
 {
+
+	// get thread id and convert it to string
+	std::ostringstream sstream;
+	sstream << std::this_thread::get_id();
+	std::string threadIdStr = sstream.str();
+
 	if (logLevel < FLog::important) {
 		if (FLog::printWarning | FLog::printAll) {
 			std::string timeTemp = std::string(std::ctime(&dateTime));
@@ -72,6 +92,7 @@ void FLog::mWarning(const time_t dateTime, int line, std::string file,
 			std::string temp = " [DateTime: " + timeTemp + " ] " +
 					   " [Type: Warning ] " + " [Line: " +
 					   std::to_string(line) + " ] " +
+					   " [Thread Id: " + threadIdStr + " ] " +
 					   " [File: " + file + " ] " + " [MSG: " +
 					   text + " ] ";
 			std::mutex locker;
@@ -94,6 +115,11 @@ void FLog::mWarning(const time_t dateTime, int line, std::string file,
 void FLog::mInfo(const time_t dateTime, int line, std::string file,
 		 std::string text)
 {
+	// get thread id and convert it to string
+	std::ostringstream sstream;
+	sstream << std::this_thread::get_id();
+	std::string threadIdStr = sstream.str();
+
 	if (logLevel == FLog::all) {
 		if (FLog::printInfo | FLog::printAll) {
 			std::string timeTemp = std::string(std::ctime(&dateTime));
@@ -101,6 +127,7 @@ void FLog::mInfo(const time_t dateTime, int line, std::string file,
 			std::string temp = " [DateTime: " + timeTemp + " ] " +
 					   " [Type: Info    ] " + " [Line: " +
 					   std::to_string(line) + " ] " +
+					   " [Thread Id: " + threadIdStr + " ] " +
 					   " [File: " + file + " ] " + " [MSG: " +
 					   text + " ] ";
 			std::mutex locker;
@@ -123,6 +150,11 @@ void FLog::mInfo(const time_t dateTime, int line, std::string file,
 void FLog::mDatabase(const time_t dateTime, int line, std::string file,
 			 std::string text)
 {
+	// get thread id and convert it to string
+	std::ostringstream sstream;
+	sstream << std::this_thread::get_id();
+	std::string threadIdStr = sstream.str();
+
 	if (logLevel < FLog::normal) {
 		if (FLog::printDatabase | FLog::printAll) {
 			std::string timeTemp = std::string(std::ctime(&dateTime));
@@ -130,6 +162,7 @@ void FLog::mDatabase(const time_t dateTime, int line, std::string file,
 			std::string temp = " [DateTime: " + timeTemp + " ] " +
 					   " [Type: Databas ] " + " [Line: " +
 					   std::to_string(line) + " ] " +
+					   " [Thread Id: " + threadIdStr + " ] " +
 					   " [File: " + file + " ] " + " [MSG: " +
 					   text + " ] ";
 			std::mutex locker;
@@ -152,6 +185,11 @@ void FLog::mDatabase(const time_t dateTime, int line, std::string file,
 void FLog::mUi(const std::time_t dateTime, int line, std::string file,
 		   std::string text)
 {
+	// get thread id and convert it to string
+	std::ostringstream sstream;
+	sstream << std::this_thread::get_id();
+	std::string threadIdStr = sstream.str();
+
 	if (logLevel == FLog::all) {
 		if (FLog::printUi | FLog::printAll) {
 			std::string timeTemp = std::string(std::ctime(&dateTime));
@@ -159,6 +197,7 @@ void FLog::mUi(const std::time_t dateTime, int line, std::string file,
 			std::string temp = " [DateTime: " + timeTemp + " ] " +
 					   " [Type: Ui      ] " + " [Line: " +
 					   std::to_string(line) + " ] " +
+					   " [Thread Id: " + threadIdStr + " ] " +
 					   " [File: " + file + " ] " + " [MSG: " +
 					   text + " ] ";
 			std::mutex locker;
