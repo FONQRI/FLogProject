@@ -1,5 +1,5 @@
 # FLogProject
-This is a simple log library in c++ and cross platform in pure c++ .
+This is a lightweight cross-platform logger library for C++ based on Standard Template Library.
 
 ## Getting Started
 
@@ -39,6 +39,9 @@ int main()
 }
 
 ```
+
+![Screenshot](https://github.com/FONQRI/FLogProject/blob/master/img/Usage.png "Screenshot of usage log")
+
 
 ## Using
 You can set these static variables and use library like above :
