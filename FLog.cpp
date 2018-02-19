@@ -3,7 +3,7 @@ FLog::FLog() {}
 
 //	function for saving user log in vector and database and print them
 //(control by macro)
-void FLog::mUserLog(std::time_t dateTime, std::string userName, int line,
+void FLog::mUserLog(std::time_t dateTime, std::string userName, int line,std::string function,
 			std::string file, std::string text)
 {
 
@@ -18,7 +18,8 @@ void FLog::mUserLog(std::time_t dateTime, std::string userName, int line,
 			timeTemp.replace(timeTemp.size() - 1, 1, "");
 			std::string temp = " [DateTime: " + timeTemp + " ] " +
 					   " [Type: User    ] " + " [Line: " +
-					   std::to_string(line) + " ] " +
+					   std::to_string(line) + " ] " + " [Function: " +
+					function + " ] " +
 					   " [Thread Id: " + threadIdStr + " ] " +
 					   " [File: " + file + " ] " + " [User: " +
 					   userName + " ] " + " [MSG: " + text +
@@ -39,7 +40,7 @@ void FLog::mUserLog(std::time_t dateTime, std::string userName, int line,
 
 //	function for saving error log in vector and database and print them
 //(control by macro)
-void FLog::mError(const time_t dateTime, int line, std::string file,
+void FLog::mError(const time_t dateTime, int line,std::string function, std::string file,
 		  std::string text)
 {
 
@@ -55,7 +56,8 @@ void FLog::mError(const time_t dateTime, int line, std::string file,
 			timeTemp.replace(timeTemp.size() - 1, 1, "");
 			std::string temp = " [DateTime: " + timeTemp + " ] " +
 					   " [Type: Error   ] " + " [Line: " +
-					   std::to_string(line) + " ] " +
+					   std::to_string(line) + " ] " + " [Function: " +
+					function + " ] " +
 					   " [Thread Id: " + threadIdStr + " ] " +
 					   " [File: " + file + " ] " + " [MSG: " +
 					   text + " ] ";
@@ -76,7 +78,7 @@ void FLog::mError(const time_t dateTime, int line, std::string file,
 
 //	function for saving warning log in vector and database and print them
 //(control by macro)
-void FLog::mWarning(const time_t dateTime, int line, std::string file,
+void FLog::mWarning(const time_t dateTime, int line,std::string function, std::string file,
 			std::string text)
 {
 
@@ -91,7 +93,8 @@ void FLog::mWarning(const time_t dateTime, int line, std::string file,
 			timeTemp.replace(timeTemp.size() - 1, 1, "");
 			std::string temp = " [DateTime: " + timeTemp + " ] " +
 					   " [Type: Warning ] " + " [Line: " +
-					   std::to_string(line) + " ] " +
+					   std::to_string(line) + " ] " + " [Function: " +
+					function + " ] " +
 					   " [Thread Id: " + threadIdStr + " ] " +
 					   " [File: " + file + " ] " + " [MSG: " +
 					   text + " ] ";
@@ -112,7 +115,7 @@ void FLog::mWarning(const time_t dateTime, int line, std::string file,
 
 //	function for saving info log in vector and database and print them
 //(control by macro)
-void FLog::mInfo(const time_t dateTime, int line, std::string file,
+void FLog::mInfo(const time_t dateTime, int line, std::string function, std::string file,
 		 std::string text)
 {
 	// get thread id and convert it to string
@@ -126,7 +129,8 @@ void FLog::mInfo(const time_t dateTime, int line, std::string file,
 			timeTemp.replace(timeTemp.size() - 1, 1, "");
 			std::string temp = " [DateTime: " + timeTemp + " ] " +
 					   " [Type: Info    ] " + " [Line: " +
-					   std::to_string(line) + " ] " +
+					   std::to_string(line) + " ] " + " [Function: " +
+					function + " ] " +
 					   " [Thread Id: " + threadIdStr + " ] " +
 					   " [File: " + file + " ] " + " [MSG: " +
 					   text + " ] ";
@@ -147,7 +151,7 @@ void FLog::mInfo(const time_t dateTime, int line, std::string file,
 
 //	function for saving database log in vector and database and print them
 //(control by macro)
-void FLog::mDatabase(const time_t dateTime, int line, std::string file,
+void FLog::mDatabase(const time_t dateTime, int line, std::string function, std::string file,
 			 std::string text)
 {
 	// get thread id and convert it to string
@@ -161,7 +165,8 @@ void FLog::mDatabase(const time_t dateTime, int line, std::string file,
 			timeTemp.replace(timeTemp.size() - 1, 1, "");
 			std::string temp = " [DateTime: " + timeTemp + " ] " +
 					   " [Type: Databas ] " + " [Line: " +
-					   std::to_string(line) + " ] " +
+					   std::to_string(line) + " ] " + " [Function: " +
+					function + " ] " +
 					   " [Thread Id: " + threadIdStr + " ] " +
 					   " [File: " + file + " ] " + " [MSG: " +
 					   text + " ] ";
@@ -182,7 +187,7 @@ void FLog::mDatabase(const time_t dateTime, int line, std::string file,
 
 //	function for saving ui log in vector and database and print them
 //(control by macro)
-void FLog::mUi(const std::time_t dateTime, int line, std::string file,
+void FLog::mUi(const std::time_t dateTime, int line, std::string function, std::string file,
 		   std::string text)
 {
 	// get thread id and convert it to string
@@ -196,7 +201,8 @@ void FLog::mUi(const std::time_t dateTime, int line, std::string file,
 			timeTemp.replace(timeTemp.size() - 1, 1, "");
 			std::string temp = " [DateTime: " + timeTemp + " ] " +
 					   " [Type: Ui      ] " + " [Line: " +
-					   std::to_string(line) + " ] " +
+					   std::to_string(line) + " ] " + " [Function: " +
+					function + " ] " +
 					   " [Thread Id: " + threadIdStr + " ] " +
 					   " [File: " + file + " ] " + " [MSG: " +
 					   text + " ] ";

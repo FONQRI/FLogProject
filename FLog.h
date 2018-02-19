@@ -11,32 +11,32 @@
 #define FLogUser(user, message)                                                \
 	FLog::mUserLog(std::chrono::system_clock::to_time_t(                       \
 			   std::chrono::system_clock::now()),                      \
-		   user, __LINE__, __FILE__, message)
+		   user, __LINE__,__FUNCTION__, __FILE__, message)
 
 #define FLogerror(message)                                                     \
 	FLog::mError(std::chrono::system_clock::to_time_t(                         \
 			 std::chrono::system_clock::now()),                        \
-		 __LINE__, __FILE__, message)
+		 __LINE__,__FUNCTION__, __FILE__, message)
 
 #define FLoginfo(message)                                                      \
 	FLog::mInfo(std::chrono::system_clock::to_time_t(                          \
 			std::chrono::system_clock::now()),                         \
-		__LINE__, __FILE__, message)
+		__LINE__,__FUNCTION__, __FILE__, message)
 
 #define FLogdatabase(message)                                                  \
 	FLog::mDatabase(std::chrono::system_clock::to_time_t(                      \
 			std::chrono::system_clock::now()),                     \
-			__LINE__, __FILE__, message)
+			__LINE__,__FUNCTION__, __FILE__, message)
 
 #define FLogGui(message)                                                       \
 	FLog::mUi(std::chrono::system_clock::to_time_t(                            \
 		  std::chrono::system_clock::now()),                           \
-		  __LINE__, __FILE__, message)
+		  __LINE__,__FUNCTION__, __FILE__, message)
 
 #define FLogwarning(message)                                                   \
 	FLog::mWarning(std::chrono::system_clock::to_time_t(                       \
 			   std::chrono::system_clock::now()),                      \
-		   __LINE__, __FILE__, message)
+		   __LINE__,__FUNCTION__, __FILE__, message)
 
 // struct normal log info
 namespace FONQRI {
@@ -128,7 +128,7 @@ class FLog {
 	@param file file of log
 	@param text log message
 	*/
-	static void mUserLog(std::time_t dateTime, std::string userName, int line,
+	static void mUserLog(std::time_t dateTime, std::string userName, int line,std::string function,
 			 std::string file, std::string text);
 
 	/**
@@ -140,7 +140,7 @@ class FLog {
 	@param file file of log
 	@param text log message
 	*/
-	static void mError(const time_t dateTime, int line, std::string file,
+	static void mError(const time_t dateTime, int line,std::string function, std::string file,
 			   std::string text);
 
 	/**
@@ -152,7 +152,7 @@ class FLog {
 	@param file file of log
 	@param text log message
 	*/
-	static void mWarning(const time_t dateTime, int line, std::string file,
+	static void mWarning(const time_t dateTime, int line, std::string function,std::string file,
 			 std::string text);
 
 	/**
@@ -164,7 +164,7 @@ class FLog {
 	@param file file of log
 	@param text log message
 	*/
-	static void mInfo(const time_t dateTime, int line, std::string file,
+	static void mInfo(const time_t dateTime, int line,std::string function, std::string file,
 			  std::string text);
 
 	/**
@@ -176,7 +176,7 @@ by macro)
 	@param file file of log
 	@param text log message
 	*/
-	static void mDatabase(const time_t dateTime, int line, std::string file,
+	static void mDatabase(const time_t dateTime, int line,std::string function, std::string file,
 			  std::string text);
 
 	/**
@@ -188,7 +188,7 @@ by macro)
 	@param file file of log
 	@param text log message
 	*/
-	static void mUi(const time_t dateTime, int line, std::string file,
+	static void mUi(const time_t dateTime, int line,std::string function, std::string file,
 			std::string text);
 
 	/**
