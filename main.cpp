@@ -20,6 +20,7 @@ int main()
 	FLogdatabase("Test message log");
 	FLoginfo("Test message log");
 	FLogwarning("Test message log");
+	FLogFree();
 
 	return 0;
 }

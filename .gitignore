@@ -33,3 +33,4 @@
 
 # Cmake
 *.txt.user
+*.txt.user*
