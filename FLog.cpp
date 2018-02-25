@@ -232,12 +232,11 @@ void FLog::mfree(const time_t dateTime, int line, std::string function,
 		if (FLog::printWarning | FLog::printAll) {
 			std::string timeTemp = std::string(std::ctime(&dateTime));
 			timeTemp.replace(timeTemp.size() - 1, 1, "");
-			std::string temp = " [DateTime: " + timeTemp + " ] " +
-					   " [Type: Warning ] " + " [Line: " +
-					   std::to_string(line) + " ] " +
-					   " [Function: " + function + " ] " +
-					   " [Thread Id: " + threadIdStr + " ] " +
-					   " [File: " + file + " ] ";
+			std::string temp =
+			" [DateTime: " + timeTemp + " ] " + " [Type: Free ] " +
+			" [Line: " + std::to_string(line) + " ] " +
+			" [Function: " + function + " ] " + " [Thread Id: " +
+			threadIdStr + " ] " + " [File: " + file + " ] ";
 			std::mutex locker;
 			locker.lock();
 			std::clog << temp << std::endl;
